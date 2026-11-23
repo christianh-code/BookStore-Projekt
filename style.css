@@ -100,3 +100,36 @@ body {
     flex-shrink: 0;
     font-weight: bold;
 }
+
+.commentSection {
+    padding: 20px;
+}
+
+.commentSection h3 {
+    margin: 0 0 16px;
+    font-size: 20px;
+}
+
+.comments {
+    height: 160px;
+    overflow-y: auto;
+}
+
+.commentRow {
+    display: flex;
+    margin: 0 0 16px;
+    line-height: 1.4;
+}
+
+.commentName {
+    width: 36%;
+    flex-shrink: 0;
+    padding-right: 8px;
+    overflow-wrap: break-word;
+}
+
+.commentText {
+    width: 64%;
+    padding-right: 8px;
+    overflow-wrap: break-word;
+}
