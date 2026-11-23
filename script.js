@@ -8,6 +8,11 @@ function renderBooks() {
 
     for (let index = 0; index < books.length; index++) {
         let book = books[index];
-        bookList.innerHTML += getBookTemplate(book);
+        let price = getBookPrice(book);
+        bookList.innerHTML += getBookTemplate(book, price);
     }
+}
+
+function getBookPrice(book) {
+    return book.price.toFixed(2).replace(".", ",");
 }
