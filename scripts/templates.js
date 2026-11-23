@@ -3,7 +3,7 @@ function getBookTemplate(book, index, heart, price, commentsHTML) {
         <article class="bookCard">
             ${getBookHeaderTemplate(book)}
             ${getBookInfoTemplate(book, index, heart, price)}
-            ${getBookCommentsTemplate(commentsHTML)}
+            ${getBookCommentsTemplate(index, commentsHTML)}
         </article>
     `;
 }
@@ -57,11 +57,12 @@ function getBookLikesTemplate(book, index, heart) {
     `;
 }
 
-function getBookCommentsTemplate(commentsHTML) {
+function getBookCommentsTemplate(index, commentsHTML) {
     return `
         <div class="commentSection">
             <h3>Kommentare:</h3>
             <div class="comments">${commentsHTML}</div>
+            ${getCommentFormTemplate(index)}
         </div>
     `;
 }
@@ -72,5 +73,27 @@ function getCommentTemplate(name, comment) {
             <span class="commentName">[${name}]</span>
             <span class="commentText">: ${comment}</span>
         </p>
+    `;
+}
+
+function getCommentFormTemplate(index) {
+    return `
+        <div class="commentForm">
+            <input type="text"
+                id="commentText-${index}"
+                placeholder="Schreibe deinen Kommentar ..."
+                aria-label="Kommentar schreiben">
+            ${getSendButtonTemplate(index)}
+        </div>
+    `;
+}
+
+function getSendButtonTemplate(index) {
+    return `
+        <button type="button" class="sendButton"
+            aria-label="Kommentar absenden"
+            onclick="addComment(${index})">
+            <img src="./assets/img/icons/paper.png" alt="">
+        </button>
     `;
 }

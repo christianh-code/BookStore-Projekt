@@ -44,6 +44,19 @@ function updateLikeDisplay(index) {
     document.getElementById(`likeImage-${index}`).src = getHeartImage(book);
 }
 
+function addComment(index) {
+    let commentInput = document.getElementById(`commentText-${index}`);
+    let commentText = commentInput.value.trim();
+    if (commentText === "") {
+        return;
+    }
+    books[index].comments.push({
+        name: "Du",
+        comment: commentText
+    });
+    renderBooks();
+}
+
 function renderComments(book) {
     let commentsHTML = "";
     for (let commentIndex = 0; commentIndex < book.comments.length; commentIndex++) {
