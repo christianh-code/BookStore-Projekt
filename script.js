@@ -25,3 +25,20 @@ function getHeartImage(book) {
     }
     return heart;
 }
+
+function changeLikeStatus(index) {
+    if (books[index].liked === true) {
+        books[index].liked = false;
+        books[index].likes--;
+    } else {
+        books[index].liked = true;
+        books[index].likes++;
+    }
+    updateLikeDisplay(index);
+}
+
+function updateLikeDisplay(index) {
+    let book = books[index];
+    document.getElementById(`likeCount-${index}`).textContent = book.likes;
+    document.getElementById(`likeImage-${index}`).src = getHeartImage(book);
+}

@@ -47,7 +47,11 @@ function getBookLikesTemplate(book, index, heart) {
     return `
         <div class="bookLikes">
             <p id="likeCount-${index}">${book.likes}</p>
-            <img id="likeImage-${index}" src="${heart}" alt="Like">
+            <button type="button" class="likebutton"
+                aria-label="Like ändern"
+                onclick="changeLikeStatus(${index})">
+                <img id="likeImage-${index}" src="${heart}" alt="">
+            </button>
         </div>
     `;
 }
