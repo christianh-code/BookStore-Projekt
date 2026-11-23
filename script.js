@@ -1,4 +1,5 @@
 function init() {
+    loadBooks();
     renderBooks();
 }
 
@@ -35,6 +36,7 @@ function changeLikeStatus(index) {
         books[index].liked = true;
         books[index].likes++;
     }
+    saveBooks();
     updateLikeDisplay(index);
 }
 
@@ -54,6 +56,7 @@ function addComment(index) {
         name: "Du",
         comment: commentText
     });
+    saveBooks();
     renderBooks();
 }
 
@@ -71,4 +74,15 @@ function getSafeText(text) {
     let element = document.createElement("span");
     element.textContent = text;
     return element.innerHTML;
+}
+
+function saveBooks() {
+    localStorage.setItem("bookStoreBooks", JSON.stringify(books));
+}
+
+function loadBooks() {
+    let savedBooks = localStorage.getItem("bookStoreBooks");
+    if (savedBooks !== null) {
+        books = JSON.parse(savedBooks);
+    }
 }
