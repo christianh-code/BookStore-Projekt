@@ -11,7 +11,9 @@ function getBookTemplate(book, index, heart, price, commentsHTML) {
 function getBookHeaderTemplate(book) {
     return `
         <h2 class="bookTitle">${book.name}</h2>
-        <img class="bookImage" src="./assets/img/book.png" alt="Book cover">
+        <img class="bookImage"
+            src="./assets/img/book.png"
+            alt="Book cover">
     `;
 }
 
