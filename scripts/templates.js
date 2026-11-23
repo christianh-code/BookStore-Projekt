@@ -1,8 +1,9 @@
-function getBookTemplate(book, index, heart, price) {
+function getBookTemplate(book, index, heart, price, commentsHTML) {
     return `
         <article class="bookCard">
             ${getBookHeaderTemplate(book)}
             ${getBookInfoTemplate(book, index, heart, price)}
+            ${getBookCommentsTemplate(commentsHTML)}
         </article>
     `;
 }
@@ -53,5 +54,23 @@ function getBookLikesTemplate(book, index, heart) {
                 <img id="likeImage-${index}" src="${heart}" alt="">
             </button>
         </div>
+    `;
+}
+
+function getBookCommentsTemplate(commentsHTML) {
+    return `
+        <div class="commentSection">
+            <h3>Kommentare:</h3>
+            <div class="comments">${commentsHTML}</div>
+        </div>
+    `;
+}
+
+function getCommentTemplate(name, comment) {
+    return `
+        <p class="commentRow">
+            <span class="commentName">[${name}]</span>
+            <span class="commentText">: ${comment}</span>
+        </p>
     `;
 }

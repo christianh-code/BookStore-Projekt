@@ -10,7 +10,8 @@ function renderBooks() {
         let book = books[index];
         let heart = getHeartImage(book);
         let price = getBookPrice(book);
-        bookList.innerHTML += getBookTemplate(book, index, heart, price);
+        let commentsHTML = renderComments(book);
+        bookList.innerHTML += getBookTemplate(book, index, heart, price, commentsHTML);
     }
 }
 
@@ -41,4 +42,20 @@ function updateLikeDisplay(index) {
     let book = books[index];
     document.getElementById(`likeCount-${index}`).textContent = book.likes;
     document.getElementById(`likeImage-${index}`).src = getHeartImage(book);
+}
+
+function renderComments(book) {
+    let commentsHTML = "";
+    for (let commentIndex = 0; commentIndex < book.comments.length; commentIndex++) {
+        let name = getSafeText(book.comments[commentIndex].name);
+        let comment = getSafeText(book.comments[commentIndex].comment);
+        commentsHTML += getCommentTemplate(name, comment);
+    }
+    return commentsHTML;
+}
+
+function getSafeText(text) {
+    let element = document.createElement("span");
+    element.textContent = text;
+    return element.innerHTML;
 }
