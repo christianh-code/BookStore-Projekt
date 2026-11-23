@@ -14,13 +14,30 @@ function getBookHeaderTemplate(book) {
     `;
 }
 
-function getBookInfoTemplate(book) {
+function getBookInfoTemplate(book, price) {
     return `
         <div class="bookInfo">
-            <p class="bookPrice">${book.price} €</p>
-            <p>Autor: ${book.author}</p>
-            <p>Erscheinungsjahr: ${book.publishedYear}</p>
-            <p>Genre: ${book.genre}</p>
+            <p class="bookPrice">${price} €</p>
+            ${getBookDetailsTemplate(book)}
         </div>
+    `;
+}
+
+function getBookDetailsTemplate(book) {
+    return `
+        <div class="bookDetails">
+            ${getBookDetailTemplate("Autor", book.author)}
+            ${getBookDetailTemplate("Erscheinungsjahr", book.publishedYear)}
+            ${getBookDetailTemplate("Genre", book.genre)}
+        </div>
+    `;
+}
+
+function getBookDetailTemplate(label, value) {
+    return `
+        <p>
+            <span class="detailLabel">${label}</span>
+            <span>: ${value}</span>
+        </p>
     `;
 }
