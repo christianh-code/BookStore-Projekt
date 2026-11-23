@@ -1,8 +1,8 @@
-function getBookTemplate(book) {
+function getBookTemplate(book, index, heart, price) {
     return `
         <article class="bookCard">
             ${getBookHeaderTemplate(book)}
-            ${getBookInfoTemplate(book)}
+            ${getBookInfoTemplate(book, index, heart, price)}
         </article>
     `;
 }
@@ -14,10 +14,11 @@ function getBookHeaderTemplate(book) {
     `;
 }
 
-function getBookInfoTemplate(book, price) {
+function getBookInfoTemplate(book, index, heart, price) {
     return `
         <div class="bookInfo">
             <p class="bookPrice">${price} €</p>
+            ${getBookLikesTemplate(book, index, heart)}
             ${getBookDetailsTemplate(book)}
         </div>
     `;
@@ -39,5 +40,14 @@ function getBookDetailTemplate(label, value) {
             <span class="detailLabel">${label}</span>
             <span>: ${value}</span>
         </p>
+    `;
+}
+
+function getBookLikesTemplate(book, index, heart) {
+    return `
+        <div class="bookLikes">
+            <p id="likeCount-${index}">${book.likes}</p>
+            <img id="likeImage-${index}" src="${heart}" alt="Like">
+        </div>
     `;
 }
