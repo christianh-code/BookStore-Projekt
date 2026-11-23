@@ -133,3 +133,39 @@ body {
     padding-right: 8px;
     overflow-wrap: break-word;
 }
+
+.commentForm {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.commentForm input {
+    width: 100%;
+    min-width: 0;
+    padding: 8px;
+    border: none;
+    border-bottom: 2px solid #68b5cc;
+    background-color: #173e4b;
+    color: #edf4f7;
+    font-size: 14px;
+}
+
+.commentForm input::placeholder {
+    color: #a9bdc6;
+}
+
+.sendButton {
+    padding: 4px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.sendButton img {
+    display: block;
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
