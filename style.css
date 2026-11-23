@@ -74,3 +74,29 @@ body {
 .bookLikes p {
     margin: 0;
 }
+
+.likebutton {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.likebutton img {
+    display: block;
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.bookDetails p {
+    display: flex;
+    margin: 6px 0;
+    line-height: 1.4;
+}
+
+.detailLabel {
+    width: 135px;
+    flex-shrink: 0;
+    font-weight: bold;
+}
