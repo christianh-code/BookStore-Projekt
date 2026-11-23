@@ -57,3 +57,20 @@ body {
     font-size: 24px;
     font-weight: bold;
 }
+
+.priceRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.bookLikes {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bookLikes p {
+    margin: 0;
+}
